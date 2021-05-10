@@ -45,7 +45,7 @@ export const jsxCode = `import React from 'react';
 class Hello extends React {
   render() {
     return (
-      <div>simon, helloworld!!!</div>
+      <div>Harish's, helloworld!!!</div>
     );
   }
 }

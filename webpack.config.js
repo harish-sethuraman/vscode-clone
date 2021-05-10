@@ -28,7 +28,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         'src/public/_redirects',
-        { from: 'data/', to: 'data/' },
+        // { from: 'data/', to: 'data/' },
       ],
     }),
     new MiniCssExtractPlugin({
