@@ -7,8 +7,9 @@ import BreadCrumb from './breadcrumb';
 
 const CodeAreaWrapper = styled.div`
   width: ${(props) => `calc(100vw - ${props.paneWidth}px - 50px)`};
-  height: 100%;
+  height: calc(100vh - 25px) ;
   background: ${(props) => props.theme.selection};
+  overflow: auto;
 `;
 const FileExplorer = styled.div`
   display: flex;

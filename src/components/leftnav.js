@@ -7,10 +7,10 @@ const NavWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 5vw;
-  max-width: 50px;
+  width: 50px;
   height: calc(100vh - 25px);
   background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
+  border-right : ${(props) =>  ` 1px ${props.theme.explorer} solid`}
 `;
 const NavItem = styled.div`
   display: flex;
@@ -28,37 +28,59 @@ const renderIcon = (icon, theme, isOpen) => {
       return (
         <div
           className="codicon codicon-search"
-          style={{ fontSize: '28px', color: `${isOpen === 'search' ? 'white' : theme.comment}`, fontWeight: '200' }}
+          style={{
+            fontSize: '28px',
+            color: `${isOpen === 'search' ? 'white' : theme.comment}`,
+            fontWeight: '200',
+          }}
         />
       );
     case 'git':
       return (
         <div
           className="codicon codicon-source-control"
-          style={{ fontSize: '28px', color: `${isOpen === 'git' ? 'white' : theme.comment}`, fontWeight: '200' }}
+          style={{
+            fontSize: '28px',
+            color: `${isOpen === 'git' ? 'white' : theme.comment}`,
+            fontWeight: '200',
+          }}
         />
       );
     case 'debugger':
       return (
         <div
           className="codicon codicon-debug-alt"
-          style={{ fontSize: '28px', color: `${isOpen === 'debugger' ? 'white' : theme.comment}`, fontWeight: '200' }}
+          style={{
+            fontSize: '28px',
+            color: `${isOpen === 'debugger' ? 'white' : theme.comment}`,
+            fontWeight: '200',
+          }}
         />
       );
     case 'extension':
       return (
         <div
           className="codicon codicon-extensions"
-          style={{ fontSize: '28px', color: `${isOpen === 'extension' ? 'white' : theme.comment}`, fontWeight: '200' }}
+          style={{
+            fontSize: '28px',
+            color: `${isOpen === 'extension' ? 'white' : theme.comment}`,
+            fontWeight: '200',
+          }}
         />
       );
-    default:
+    case 'files':
       return (
         <div
           className="codicon codicon-files"
-          style={{ fontSize: '28px', color: `${isOpen === '' ? 'white' : theme.comment}`, fontWeight: '200' }}
+          style={{
+            fontSize: '28px',
+            color: `${isOpen === 'files' ? 'white' : theme.comment}`,
+            fontWeight: '200',
+          }}
         />
       );
+    default:
+      return null;
   }
 };
 const LeftNav = () => {
@@ -66,8 +88,11 @@ const LeftNav = () => {
   const location = useLocation();
   return (
     <NavWrapper theme={theme}>
-      {['', 'search', 'git', 'debugger', 'extension'].map((option) => (
-        <Link key={option} to={option}>
+      {['files', 'search', 'git', 'debugger', 'extension'].map((option) => (
+        <Link
+          key={option}
+          to={location.pathname.slice(1) === option ? '/' : option}
+        >
           <NavItem
             theme={theme}
             isCurrent={location.pathname.slice(1) === option}

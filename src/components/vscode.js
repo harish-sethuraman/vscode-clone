@@ -1,6 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  Switch, Route, useLocation, withRouter,
+} from 'react-router-dom';
 import { ResizableBox } from 'react-resizable';
 import FilesPane from './filespane';
 import LeftNav from './leftnav';
@@ -32,59 +34,128 @@ const CustomHandle = styled.div`
   cursor: col-resize;
   width: 2px;
 `;
-const VSCode = () => {
+const VSCode = ({ history }) => {
   const [File, setFile] = useState('html');
-  const [width, setWidth] = useState('240');
-  const Theme = useContext(ThemeContext);
+  const [width, setWidth] = useState(240);
+  const [initWidth, setInitWidth] = useState();
+  const currentLocation = useLocation();
+  const { innerWidth } = window;
 
+  useEffect(() => {
+    if (innerWidth < 500 && currentLocation.pathname.slice(1) !== '') {
+      setWidth(148);
+      setInitWidth(150);
+    } else if (innerWidth < 500 && currentLocation.pathname.slice(1) === '') {
+      setWidth(0);
+      setInitWidth(2);
+    } else if (innerWidth > 500 && currentLocation.pathname.slice(1) !== '') {
+      setWidth(238);
+      setInitWidth(240);
+    } else {
+      setWidth(0);
+      setInitWidth(0);
+    }
+  }, [history]);
+
+  history.listen((location) => {
+    if (innerWidth < 500 && location.pathname.slice(1) !== '') {
+      setWidth(148);
+      setInitWidth(150);
+    } else if (innerWidth < 500 && location.pathname.slice(1) === '') {
+      setWidth(0);
+      setInitWidth(2);
+    } else if (innerWidth > 500 && location.pathname.slice(1) !== '') {
+      setWidth(238);
+      setInitWidth(240);
+    } else {
+      setWidth(0);
+      setInitWidth(0);
+    }
+  });
   const onResize = (event, { size }) => {
     setWidth(size.width);
   };
 
   return (
-    <Router>
-      <ContentWrapper>
-        <Content>
-          <LeftNav />
+    <ContentWrapper>
+      <Content>
+        <LeftNav />
+        <Route path="/">{null}</Route>
+
+        <Route path="/files" exact>
           <ResizableBox
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
-            width={240}
+            width={initWidth}
             height="100%"
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >
-            <Route path="/" exact>
-              <FilesPane
-                paneWidth={width}
-                openFile={File}
-                toggleCurrentFile={setFile}
-              />
-            </Route>
-            <Route path="/search" exact>
-              <SearchPane paneWidth={width} />
-            </Route>
-            <Route path="/git" exact>
-              <GitPane paneWidth={width} />
-            </Route>
-            <Route path="/debugger" exact>
-              <DebuggerPane paneWidth={width} />
-            </Route>
-            <Route path="/extension" exact>
-              <ExtensionPane paneWidth={width} />
-            </Route>
+            <FilesPane
+              paneWidth={width}
+              openFile={File}
+              toggleCurrentFile={setFile}
+            />
           </ResizableBox>
+        </Route>
+        <Route path="/search" exact>
+          <ResizableBox
+            onResize={onResize}
+            style={{ background: 'black', display: 'flex' }}
+            width={initWidth}
+            height="100%"
+            handle={<CustomHandle />}
+            handleSize={[8, 8]}
+          >
+            <SearchPane paneWidth={width} />
+          </ResizableBox>
+        </Route>
+        <Route path="/git" exact>
+          <ResizableBox
+            onResize={onResize}
+            style={{ background: 'black', display: 'flex' }}
+            width={initWidth}
+            height="100%"
+            handle={<CustomHandle />}
+            handleSize={[8, 8]}
+          >
+            <GitPane paneWidth={width} />
+          </ResizableBox>
+        </Route>
+        <Route path="/debugger" exact>
+          <ResizableBox
+            onResize={onResize}
+            style={{ background: 'black', display: 'flex' }}
+            width={initWidth}
+            height="100%"
+            handle={<CustomHandle />}
+            handleSize={[8, 8]}
+          >
+            <DebuggerPane paneWidth={width} />
+          </ResizableBox>
+        </Route>
+        <Route path="/extension" exact>
+          <ResizableBox
+            onResize={onResize}
+            style={{ background: 'black', display: 'flex' }}
+            width={initWidth}
+            height="100%"
+            handle={<CustomHandle />}
+            handleSize={[8, 8]}
+          >
+            <ExtensionPane paneWidth={width} />
+          </ResizableBox>
+        </Route>
 
-          <CodeArea
-            paneWidth={width}
-            openFile={File}
-            toggleCurrentFile={setFile}
-          />
-        </Content>
-        <BottomBar />
-      </ContentWrapper>
-    </Router>
+        <CodeArea
+          paneWidth={width}
+          openFile={File}
+          toggleCurrentFile={setFile}
+        />
+      </Content>
+      <BottomBar />
+    </ContentWrapper>
   );
 };
 
-export default VSCode;
+export default withRouter(VSCode);

@@ -4,12 +4,15 @@ import ThemeContext, { themes, GlobalStyle } from 'Components/themecontext';
 
 import VSCode from 'Components/vscode';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const Index = () => (
-  <ThemeProvider theme={themes.dark}>
-    <GlobalStyle />
-    <VSCode />
-  </ThemeProvider>
+  <Router>
+    <ThemeProvider theme={themes.dark}>
+      <GlobalStyle />
+      <VSCode />
+    </ThemeProvider>
+  </Router>
 );
 
 ReactDOM.render(<Index />, document.getElementsByTagName('body')[0]);
