@@ -39,8 +39,9 @@ export const GlobalStyle = createGlobalStyle`
       color : #6495ed;
     }
     pre {
-      margin : 0;
-      padding : 0;
+      margin : 0 !important;
+      padding : 0 !important;
+      overflow: auto;
       background : #44475A !important;
     }
   `;
