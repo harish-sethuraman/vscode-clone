@@ -35,14 +35,12 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0;
     }
     a{
-      padding-left :3px;
       text-decoration: none;
       color : #6495ed;
     }
     pre {
+      margin : 0;
+      padding : 0;
       background : #44475A !important;
-    }
-    code span{
-      font-weight :100 !important;
     }
   `;

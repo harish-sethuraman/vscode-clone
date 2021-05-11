@@ -4,7 +4,7 @@ import styled, { ThemeContext } from 'styled-components';
 import Button from './button';
 
 const SearchWrapper = styled.div`
-  width: 200px;
+  width: ${(props) => `${props.paneWidth}px`};
   height: 100%;
   background-color: ${(props) => props.theme.explorer};
   color: white;
@@ -35,10 +35,10 @@ display : flex;
 flex-direction : column;
 `;
 
-const DebuggerPane = () => {
+const DebuggerPane = ({ paneWidth }) => {
   const theme = useContext(ThemeContext);
   return (
-    <SearchWrapper theme={{ ...theme }}>
+    <SearchWrapper paneWidth={paneWidth} theme={{ ...theme }}>
       <Title>
         <PaneName>RUN AND DEBUG: RUN</PaneName>
       </Title>

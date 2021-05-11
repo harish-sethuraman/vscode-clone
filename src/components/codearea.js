@@ -6,13 +6,13 @@ import renderFile from './renderfile';
 import BreadCrumb from './breadcrumb';
 
 const CodeAreaWrapper = styled.div`
-  width: calc(100vw - 240px);
+  width: ${(props) => `calc(100vw - ${props.paneWidth}px - 50px)`};
   height: 100%;
   background: ${(props) => props.theme.selection};
 `;
 const FileExplorer = styled.div`
   display: flex;
-  width: calc(100vw - 240px);
+  width: auto;
   overflow-x: scroll;
   overflow-y: scroll;
   background: ${(props) => props.theme.explorer};
@@ -21,10 +21,10 @@ const FileExplorer = styled.div`
   }
 `;
 
-const CodeArea = ({openFile,toggleCurrentFile}) => {
+const CodeArea = ({ openFile, toggleCurrentFile, paneWidth }) => {
   const Theme = useContext(ThemeContext);
   return (
-    <CodeAreaWrapper theme={{ ...Theme }}>
+    <CodeAreaWrapper paneWidth={paneWidth} theme={{ ...Theme }}>
       <FileExplorer>
         <Files openFile={openFile} changeCurrentFile={toggleCurrentFile} />
       </FileExplorer>

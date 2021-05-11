@@ -4,7 +4,7 @@ import { ArrowIcon } from 'Icons/icons';
 import Folder from './folder';
 
 const FilesWrapper = styled.div`
-  width: 200px;
+  width: ${(props) => `${props.paneWidth}px`};
   height: 100%;
   background-color: ${(props) => props.theme.explorer};
   color: white;
@@ -36,10 +36,10 @@ const FolderName = styled.div`
   padding-left: 5px;
 `;
 
-const FilesPane = ({ openFile, toggleCurrentFile }) => {
+const FilesPane = ({ openFile, toggleCurrentFile, paneWidth }) => {
   const theme = useContext(ThemeContext);
   return (
-    <FilesWrapper theme={{ ...theme }}>
+    <FilesWrapper paneWidth={paneWidth} theme={{ ...theme }}>
       <Title>
         <PaneName>EXPLORER</PaneName>
         <MoreInfo>

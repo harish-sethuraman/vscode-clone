@@ -12,7 +12,9 @@ const File = styled.div`
   align-items: center;
   min-width: 150px;
   min-height: 28px;
-  ${(props) => (props.isOpen ? `border-top : ${props.theme.pink} 1px solid` : null)}
+  ${(props) => (props.isOpen ? `border-top : ${props.theme.pink} 1px solid` : null)};
+  ${(props) => (!props.isOpen ? `border-right :1px  black solid` : null)};
+  ${(props) => (!props.isOpen ? `border-bottom :1px black  solid` : null)};
 `;
 
 const FileContent = styled.div`

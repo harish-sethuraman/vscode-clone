@@ -1,7 +1,9 @@
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 
-import { gradientDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 import {
   cssCode, htmlCode, jsCode, jsonCode, jsxCode,
 } from './constants';
@@ -12,8 +14,8 @@ const renderFile = (File) => {
       return (
         <SyntaxHighlighter
           showLineNumbers
-          language="htmlbars"
-          style={gradientDark}
+          language="wiki"
+          style={dracula}
         >
           {htmlCode}
         </SyntaxHighlighter>
@@ -24,7 +26,7 @@ const renderFile = (File) => {
         <SyntaxHighlighter
           showLineNumbers
           language="css"
-          style={gradientDark}
+          style={dracula}
         >
           {cssCode}
         </SyntaxHighlighter>
@@ -35,7 +37,7 @@ const renderFile = (File) => {
         <SyntaxHighlighter
           showLineNumbers
           language="javascript"
-          style={gradientDark}
+          style={dracula}
         >
           {jsCode}
         </SyntaxHighlighter>
@@ -45,7 +47,7 @@ const renderFile = (File) => {
         <SyntaxHighlighter
           showLineNumbers
           language="json"
-          style={gradientDark}
+          style={dracula}
         >
           {jsonCode}
         </SyntaxHighlighter>
@@ -55,8 +57,8 @@ const renderFile = (File) => {
       return (
         <SyntaxHighlighter
           showLineNumbers
-          language="javascript"
-          style={gradientDark}
+          language="jsx"
+          style={dracula}
         >
           {jsxCode}
         </SyntaxHighlighter>

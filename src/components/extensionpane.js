@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
 const SearchWrapper = styled.div`
-  width: 200px;
+  width: ${(props) => `${props.paneWidth}px`};
   height: 100%;
   background-color: ${(props) => props.theme.explorer};
   color: white;
@@ -54,10 +54,10 @@ display : flex;
 flex-direction : column;
 `;
 
-const ExtensionPane = () => {
+const ExtensionPane = ({paneWidth}) => {
   const theme = useContext(ThemeContext);
   return (
-    <SearchWrapper theme={{ ...theme }}>
+    <SearchWrapper paneWidth={paneWidth} theme={{ ...theme }}>
       <Title>
         <PaneName>EXTENSION</PaneName>
       </Title>

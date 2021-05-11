@@ -8,7 +8,7 @@ const NavWrapper = styled.div`
   flex-direction: column;
   align-items: stretch;
   width: 5vw;
-  min-width: 40px;
+  max-width: 50px;
   height: calc(100vh - 25px);
   background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
 `;
@@ -18,7 +18,7 @@ const NavItem = styled.div`
   align-items: center;
   height: 48px;
   width: 100%;
-  ${(props) => (props.isCurrent ? `border-left: ${props.theme.pink} 1px solid;` : null)}
+  ${(props) => (props.isCurrent ? `border-left: ${props.theme.pink} 2px solid;` : null)}
   background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
 `;
 
