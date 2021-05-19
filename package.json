@@ -7,6 +7,14 @@
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
