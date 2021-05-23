@@ -7,8 +7,8 @@ const NavWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 50px;
-  height: calc(100vh - 25px);
+  min-width: 50px;
+  height: 100%;
   background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
   border-right : ${(props) =>  ` 1px ${props.theme.explorer} solid`}
 `;

@@ -6,8 +6,8 @@ import renderFile from './renderfile';
 import BreadCrumb from './breadcrumb';
 
 const CodeAreaWrapper = styled.div`
-  width: ${(props) => `calc(100vw - ${props.paneWidth}px - 50px)`};
-  height: calc(100vh - 25px) ;
+  width: ${(props) => `calc(100% - ${props.paneWidth}px - 50px)`};
+  height: 100% ;
   background: ${(props) => props.theme.selection};
   overflow: auto;
 `;

@@ -16,7 +16,7 @@ import DebuggerPane from './debuggerpane';
 // import LeftNav from './leftnav'
 // import ThemeContext from 'Components/themecontext'
 const ContentWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: black;
   color: white;

@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
   mode: 'development',
@@ -25,6 +26,14 @@ module.exports = {
     ],
   },
   plugins: [
+    new ModuleFederationPlugin({
+      name: 'VSCODE',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './VSCODE': './src/app.js',
+      },
+      shared: [{ react: { singleton: true } }],
+    }),
     new CopyWebpackPlugin({
       patterns: [
         'src/public/_redirects',
@@ -40,7 +49,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    port: 1234,
+    port: 1235,
     historyApiFallback: true,
   },
   resolve: {
