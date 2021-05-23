@@ -17,7 +17,7 @@ import DebuggerPane from './debuggerpane';
 // import ThemeContext from 'Components/themecontext'
 const ContentWrapper = styled.div`
   height: 100%;
-  width: 100vw;
+  width: 100%;
   background-color: black;
   color: white;
   display: flex;

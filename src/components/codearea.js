@@ -9,13 +9,12 @@ const CodeAreaWrapper = styled.div`
   width: ${(props) => `calc(100% - ${props.paneWidth}px - 50px)`};
   height: 100% ;
   background: ${(props) => props.theme.selection};
-  overflow: auto;
+  /* overflow: auto; */
 `;
 const FileExplorer = styled.div`
   display: flex;
   width: auto;
-  overflow-x: scroll;
-  overflow-y: scroll;
+  overflow: auto;
   background: ${(props) => props.theme.explorer};
   &::-webkit-scrollbar {
     display: none;

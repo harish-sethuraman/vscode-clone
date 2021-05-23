@@ -9,7 +9,7 @@ const BreadCrumbWrapper = styled.div`
   display: flex;
   padding: 13px;
   box-sizing: border-box;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 
 const Path = styled.div`

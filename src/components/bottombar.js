@@ -10,24 +10,29 @@ const BottomBarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size : 0.85rem;
+  font-size: 0.85rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding : 0px 20px;
+  background: black;
 `;
 
 const Group = styled.div`
-align-items :center;
-display : flex;
-padding-left: 5px;
-
+  align-items: center;
+  display: flex;
+  padding-left: 5px;
 `;
 const GroupText = styled.div`
-padding-left: 3px;
+  padding-left: 3px;
 `;
 
 const LeftFloat = styled.div`
-display : flex;
+  display: flex;
 `;
 const RightFloat = styled.div`
-display:flex;
+  display: flex;
+  margin-right: 20px;
 `;
 
 const BottomBar = () => {
@@ -65,7 +70,6 @@ const BottomBar = () => {
             style={{ fontSize: '18px', color: 'white' }}
           />
           <GroupText>Prettier</GroupText>
-
         </Group>
         <Group>
           <div

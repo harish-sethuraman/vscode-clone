@@ -41,7 +41,8 @@ export const GlobalStyle = createGlobalStyle`
     pre {
       margin : 0 !important;
       padding : 0 !important;
-      overflow: auto;
+      /* overflow: auto; */
+      height : calc(100% - 50px - 26px - 10px - 42px);
       background : #44475A !important;
     }
   `;
