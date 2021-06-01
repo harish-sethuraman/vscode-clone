@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const htmlCode = `<!doctype html>
+export const htmlCode = `
 <html lang="en">
 
 <head>
