@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import {
   Switch, Route, useLocation, withRouter,

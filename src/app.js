@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import VSCode from 'Components/vscode';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';

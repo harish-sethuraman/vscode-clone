@@ -3,7 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const Package = require('./package.json');
 
+console.log('here', Package);
 module.exports = {
   mode: 'development',
   module: {
@@ -32,7 +34,12 @@ module.exports = {
       exposes: {
         './VSCODE': './src/app.js',
       },
-      shared: [{ react: { singleton: true } }],
+      shared: [{
+        react: {
+          requiredVersion: '^17.0.2',
+          singleton: true,
+        },
+      }],
     }),
     new CopyWebpackPlugin({
       patterns: [
