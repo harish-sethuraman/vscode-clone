@@ -66,9 +66,9 @@ module.exports = {
         // { from: 'data/', to: 'data/' },
       ],
     }),
-    new MiniCssExtractPlugin({
-      chunkFilename: 'styles.css',
-    }),
+    // new MiniCssExtractPlugin({
+    //   chunkFilename: 'styles.css',
+    // }),
     new HtmlWebPackPlugin({
       title: 'Harish Kumar',
       template: 'src/public/index.html',
