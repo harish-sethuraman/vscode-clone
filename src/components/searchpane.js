@@ -23,7 +23,7 @@ const PaneName = styled.span`
 
 const SearchInput = styled.input`
   background-color: ${(props) => props.theme.selection};
-  border: 1px ${(props) => props.theme.backgrounnd};
+  border: 1px ${(props) => props.theme.background};
   margin: 5px 10px;
   height: 25px;
   &::placeholder{
@@ -32,7 +32,7 @@ const SearchInput = styled.input`
   }
 
   &:focus {
-    outline: ${(props) => props.theme.pink} 1px solid;
+    outline: ${(props) => props.theme.bottomBar} 1px solid;
 
   }
 `;

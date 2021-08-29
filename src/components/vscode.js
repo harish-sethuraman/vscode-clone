@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import {
   Switch, Route, useLocation, withRouter,
 } from 'react-router-dom';
@@ -37,7 +37,7 @@ const CustomHandle = styled.div`
 const VSCode = ({ history }) => {
   const [File, setFile] = useState('html');
   const [width, setWidth] = useState(240);
-  const [initWidth, setInitWidth] = useState();
+  const [initWidth, setInitWidth] = useState(148);
   const currentLocation = useLocation();
   const { innerWidth } = window;
 
@@ -87,7 +87,7 @@ const VSCode = ({ history }) => {
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
             width={initWidth}
-            height="100%"
+            // height={100}
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >
@@ -103,7 +103,7 @@ const VSCode = ({ history }) => {
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
             width={initWidth}
-            height="100%"
+            // height={100}
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >
@@ -115,7 +115,7 @@ const VSCode = ({ history }) => {
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
             width={initWidth}
-            height="100%"
+            // height={100}
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >
@@ -127,7 +127,7 @@ const VSCode = ({ history }) => {
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
             width={initWidth}
-            height="100%"
+            // height={100}
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >
@@ -139,7 +139,7 @@ const VSCode = ({ history }) => {
             onResize={onResize}
             style={{ background: 'black', display: 'flex' }}
             width={initWidth}
-            height="100%"
+            // height={100}
             handle={<CustomHandle />}
             handleSize={[8, 8]}
           >

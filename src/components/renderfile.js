@@ -1,67 +1,30 @@
 import React from 'react';
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-
-// import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
-import {
-  cssCode, htmlCode, jsCode, jsonCode, jsxCode,
-} from './constants';
+import CodeEditor from './codeEditor';
 
 const renderFile = (File) => {
   switch (File) {
     case 'html':
       return (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="wiki"
-          style={dracula}
-        >
-          {htmlCode}
-        </SyntaxHighlighter>
+        <CodeEditor language="html" />
       );
 
     case 'css':
       return (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="css"
-          style={dracula}
-        >
-          {cssCode}
-        </SyntaxHighlighter>
+        <CodeEditor language="css" />
       );
 
     case 'js':
       return (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="javascript"
-          style={dracula}
-        >
-          {jsCode}
-        </SyntaxHighlighter>
+        <CodeEditor language="javascript" />
       );
     case 'json':
       return (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="json"
-          style={dracula}
-        >
-          {jsonCode}
-        </SyntaxHighlighter>
+        <CodeEditor language="json" />
       );
 
     case 'jsx':
       return (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="jsx"
-          style={dracula}
-        >
-          {jsxCode}
-        </SyntaxHighlighter>
+        <CodeEditor language="jsx" />
       );
 
     default:

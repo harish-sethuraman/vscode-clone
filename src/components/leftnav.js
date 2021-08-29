@@ -9,7 +9,7 @@ const NavWrapper = styled.div`
   align-items: stretch;
   min-width: 50px;
   height: auto;
-  background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
+  background: ${(props) => (props.theme.leftnav ? props.theme.leftnav : null)};
   border-right : ${(props) =>  ` 1px ${props.theme.explorer} solid`}
 `;
 const NavItem = styled.div`
@@ -18,8 +18,8 @@ const NavItem = styled.div`
   align-items: center;
   height: 48px;
   width: 100%;
-  ${(props) => (props.isCurrent ? `border-left: ${props.theme.pink} 2px solid;` : null)}
-  background: ${(props) => (props.theme.selection ? props.theme.selection : null)};
+  ${(props) => (props.isCurrent ? `border-left: ${props.theme.border} 2px solid;` : null)}
+  background: ${(props) => (props.theme.leftnav ? props.theme.leftnav : null)};
 `;
 
 const renderIcon = (icon, theme, isOpen) => {

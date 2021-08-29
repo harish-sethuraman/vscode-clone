@@ -2,7 +2,7 @@ import React from 'react';
 import VSCode from 'Components/vscode';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ThemeContext, { themes, GlobalStyle } from 'Components/themecontext';
+import { themes, GlobalStyle } from 'Components/themecontext';
 
 const App = () => (
   <Router>

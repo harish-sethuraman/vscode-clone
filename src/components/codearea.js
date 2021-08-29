@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
 import Files from './files';
@@ -6,10 +6,9 @@ import renderFile from './renderfile';
 import BreadCrumb from './breadcrumb';
 
 const CodeAreaWrapper = styled.div`
-  width: ${(props) => `calc(100% - ${props.paneWidth}px - 50px)`};
-  height: 100% ;
+  width: ${(props) => `calc(100% - ${props.paneWidth+3}px - 50px)`};
+  height: calc(100% - 25px);
   background: ${(props) => props.theme.selection};
-  /* overflow: auto; */
 `;
 const FileExplorer = styled.div`
   display: flex;
@@ -21,6 +20,11 @@ const FileExplorer = styled.div`
   }
 `;
 
+const CodeEditorHolder = styled.div`
+  height: calc(100% - 50px);
+  width: 100%;
+`;
+
 const CodeArea = ({ openFile, toggleCurrentFile, paneWidth }) => {
   const Theme = useContext(ThemeContext);
   return (
@@ -29,7 +33,7 @@ const CodeArea = ({ openFile, toggleCurrentFile, paneWidth }) => {
         <Files openFile={openFile} changeCurrentFile={toggleCurrentFile} />
       </FileExplorer>
       <BreadCrumb openFile={openFile} />
-      {renderFile(openFile)}
+      <CodeEditorHolder>{renderFile(openFile)}</CodeEditorHolder>
     </CodeAreaWrapper>
   );
 };

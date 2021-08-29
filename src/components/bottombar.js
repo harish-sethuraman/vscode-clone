@@ -15,7 +15,7 @@ const BottomBarWrapper = styled.div`
   bottom: 0;
   width: 100%;
   padding : 0px 20px;
-  background: black;
+  background: rgba( 46, 132, 213, 100%);
 `;
 
 const Group = styled.div`

@@ -9,7 +9,6 @@ const BreadCrumbWrapper = styled.div`
   display: flex;
   padding: 13px;
   box-sizing: border-box;
-  /* overflow: scroll; */
 `;
 
 const Path = styled.div`
@@ -19,11 +18,6 @@ const Path = styled.div`
 `;
 
 const PathName = styled.div``;
-const BoxShadow = styled.div`
-  box-shadow: #21222c 1px 11px 6px -6px inset;
-  width: 100%;
-  height: 10px;
-`;
 const BreadCrumb = ({ openFile }) => (
   <>
     <BreadCrumbWrapper>
@@ -38,7 +32,6 @@ const BreadCrumb = ({ openFile }) => (
         </PathName>
       </Path>
     </BreadCrumbWrapper>
-    <BoxShadow />
   </>
 );
 

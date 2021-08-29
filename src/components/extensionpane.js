@@ -33,7 +33,7 @@ const SearchInput = styled.input`
   }
 
   &:focus {
-    outline: ${(props) => props.theme.pink} 1px solid;
+    outline: ${(props) => props.theme.border} 1px solid;
 
   }
 `;
