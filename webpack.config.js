@@ -4,6 +4,8 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const zlib = require('zlib');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   output: {
@@ -39,6 +41,19 @@ module.exports = {
   plugins: [
     new MonacoWebpackPlugin({
       languages: ['html', 'css', 'js', 'typescript'],
+    }),
+    new CompressionPlugin({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
     }),
     new ModuleFederationPlugin({
       name: 'VSCODE',
